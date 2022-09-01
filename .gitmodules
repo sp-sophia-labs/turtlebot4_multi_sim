@@ -13,3 +13,6 @@
 [submodule "src/rclcpp"]
 	path = src/rclcpp
 	url = https://github.com/sp-sophia-labs/rclcpp.git
+[submodule "src/turtlebot4_simulator"]
+	path = src/turtlebot4_simulator
+	url = https://github.com/sp-sophia-labs/turtlebot4_simulator.git
