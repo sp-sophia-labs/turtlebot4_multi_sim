@@ -16,3 +16,6 @@
 [submodule "src/turtlebot4_simulator"]
 	path = src/turtlebot4_simulator
 	url = https://github.com/sp-sophia-labs/turtlebot4_simulator.git
+[submodule "src/turtlebot4"]
+	path = src/turtlebot4
+	url = https://github.com/sp-sophia-labs/turtlebot4.git
