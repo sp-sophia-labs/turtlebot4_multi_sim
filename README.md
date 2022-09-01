@@ -2,19 +2,19 @@
 
 Tentative to launch multiple turtlebot4 in simulation. For now working only with the create3 mobile base. This code is tested for Ubuntu 20.04 and ROS2 Galactic
 
-# Create3
-
-### install
+## install
 
 `make install`
 
-### build
+## build
 
 `make build`
 
 If you are building on a weaker machine, it's recommended to build packages sequentially to avoid problems
 
 `make safe_build`
+
+# Create3
 
 ### run
 
@@ -26,12 +26,20 @@ Launch the world and the first create3 instance:
 The namespace needs to follow the `robot_X` nomenclature or be left empty
 The robot_name can be changed and defaults to "create3"
 
-For weaker machines, you can spawn create3 in an empty world:
-`ros2 launch irobot_create_ignition_bringup create3_ignition.launch.py namespace:=robot_0 robot_name:=robot_zero world:=empty`
-
 Alternatively, launching the robot without namespaces is still available:
 `ros2 launch irobot_create_ignition_bringup create3_ignition.launch.py`
 
+For weaker machines, you can spawn create3 in an empty world:
+`ros2 launch irobot_create_ignition_bringup create3_ignition.launch.py world:=empty`
+
+In a separate terminal, spawn another create3 instance with different name, namespace and pose:
+`ros2 launch irobot_create_ignition_bringup create3_spawn.launch.py namespace:=robot_1 robot_name:=robot_one y:=1`
+
+You can change the x, y, z param to spawn the robot where needed
+
+# TurtleBot4
+
+TODO
 
 # Known issues
 
@@ -44,3 +52,5 @@ Alternatively, launching the robot without namespaces is still available:
 - Spawning a 3rd create3 in the scene causes Gazebo to crash unexpectandly. We are still investigating this issue, it does not appear to be a performance issue and the limit of 2 create3 in the same scene has been noticed in multiple machines with different specs 
 
 - Namespaces need to be registered in `` before being used, limiting scalability and naming flexibility
+
+- [Err] [SceneManager.cc:179] Visual: [robot_zero_standard_dock] already exists. These errors will appear in your first terminal when spawning new robots, they can be ignored
