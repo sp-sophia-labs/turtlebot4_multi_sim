@@ -1,0 +1,15 @@
+[submodule "src/ros2_controllers"]
+	path = src/ros2_controllers
+	url = https://github.com/sp-sophia-labs/ros2_controllers.git
+[submodule "src/ros2_control"]
+	path = src/ros2_control
+	url = https://github.com/sp-sophia-labs/ros2_control.git
+[submodule "src/gz_ros2_control"]
+	path = src/gz_ros2_control
+	url = https://github.com/sp-sophia-labs/gz_ros2_control.git
+[submodule "src/create3_sim"]
+	path = src/create3_sim
+	url = https://github.com/sp-sophia-labs/create3_sim.git
+[submodule "src/rclcpp"]
+	path = src/rclcpp
+	url = https://github.com/sp-sophia-labs/rclcpp.git
