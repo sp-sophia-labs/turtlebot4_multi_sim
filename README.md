@@ -54,3 +54,7 @@ TODO
 - Namespaces need to be registered in `` before being used, limiting scalability and naming flexibility
 
 - [Err] [SceneManager.cc:179] Visual: [robot_zero_standard_dock] already exists. These errors will appear in your first terminal when spawning new robots, they can be ignored
+
+# Debugging
+
+To run an un-modified version of the create3 on the depot world you can use the recorded bag: `ros2 bag play original_all_bag/ --loop` 
