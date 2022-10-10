@@ -55,6 +55,37 @@ TODO
 
 - [Err] [SceneManager.cc:179] Visual: [robot_zero_standard_dock] already exists. These errors will appear in your first terminal when spawning new robots, they can be ignored
 
+full stack-trace: 
+```
+[ign gazebo-1] [Err] [SceneManager.cc:179] Visual: [ground_plane] already exists
+[ign gazebo-1] [Err] [SceneManager.cc:179] Visual: [robot_zero] already exists
+[ign gazebo-1] [Err] [SceneManager.cc:179] Visual: [robot_zero_standard_dock] already exists
+[ign gazebo-1] [Err] [SceneManager.cc:179] Visual: [robot_one_standard_dock] already exists
+[ign gazebo-1] [Err] [SceneManager.cc:179] Visual: [robot_one] already exists
+[ign gazebo-1] [Err] [RenderUtil.cc:842] Failed to create sensor with name[robot_zero::base_link::cliff_front_left] for entity [12]. Parent not found with ID[9].
+[ign gazebo-1] [Err] [RenderUtil.cc:842] Failed to create sensor with name[robot_zero::base_link::cliff_front_right] for entity [13]. Parent not found with ID[9].
+[ign gazebo-1] [Err] [RenderUtil.cc:842] Failed to create sensor with name[robot_zero::base_link::cliff_side_left] for entity [14]. Parent not found with ID[9].
+[ign gazebo-1] [Err] [RenderUtil.cc:842] Failed to create sensor with name[robot_zero::base_link::cliff_side_right] for entity [15]. Parent not found with ID[9].
+[ign gazebo-1] [Err] [RenderUtil.cc:842] Failed to create sensor with name[robot_zero::ir_intensity_front_center_left::ir_intensity_front_center_left] for entity [26]. Parent not found with ID[25].
+[ign gazebo-1] [Err] [RenderUtil.cc:842] Failed to create sensor with name[robot_zero::ir_intensity_front_center_right::ir_intensity_front_center_right] for entity [28]. Parent not found with ID[27].
+[ign gazebo-1] [Err] [RenderUtil.cc:842] Failed to create sensor with name[robot_zero::ir_intensity_front_left::ir_intensity_front_left] for entity [30]. Parent not found with ID[29].
+[ign gazebo-1] [Err] [RenderUtil.cc:842] Failed to create sensor with name[robot_zero::ir_intensity_front_right::ir_intensity_front_right] for entity [32]. Parent not found with ID[31].
+[ign gazebo-1] [Err] [RenderUtil.cc:842] Failed to create sensor with name[robot_zero::ir_intensity_left::ir_intensity_left] for entity [34]. Parent not found with ID[33].
+[ign gazebo-1] [Err] [RenderUtil.cc:842] Failed to create sensor with name[robot_zero::ir_intensity_right::ir_intensity_right] for entity [36]. Parent not found with ID[35].
+[ign gazebo-1] [Err] [RenderUtil.cc:842] Failed to create sensor with name[robot_zero::ir_intensity_side_left::ir_intensity_side_left] for entity [38]. Parent not found with ID[37].
+[ign gazebo-1] [Err] [RenderUtil.cc:842] Failed to create sensor with name[robot_one::base_link::cliff_front_left] for entity [93]. Parent not found with ID[90].
+[ign gazebo-1] [Err] [RenderUtil.cc:842] Failed to create sensor with name[robot_one::base_link::cliff_front_right] for entity [94]. Parent not found with ID[90].
+[ign gazebo-1] [Err] [RenderUtil.cc:842] Failed to create sensor with name[robot_one::base_link::cliff_side_left] for entity [95]. Parent not found with ID[90].
+[ign gazebo-1] [Err] [RenderUtil.cc:842] Failed to create sensor with name[robot_one::base_link::cliff_side_right] for entity [96]. Parent not found with ID[90].
+[ign gazebo-1] [Err] [RenderUtil.cc:842] Failed to create sensor with name[robot_one::ir_intensity_front_center_left::ir_intensity_front_center_left] for entity [107]. Parent not found with ID[106].
+[ign gazebo-1] [Err] [RenderUtil.cc:842] Failed to create sensor with name[robot_one::ir_intensity_front_center_right::ir_intensity_front_center_right] for entity [109]. Parent not found with ID[108].
+[ign gazebo-1] [Err] [RenderUtil.cc:842] Failed to create sensor with name[robot_one::ir_intensity_front_left::ir_intensity_front_left] for entity [111]. Parent not found with ID[110].
+[ign gazebo-1] [Err] [RenderUtil.cc:842] Failed to create sensor with name[robot_one::ir_intensity_front_right::ir_intensity_front_right] for entity [113]. Parent not found with ID[112].
+[ign gazebo-1] [Err] [RenderUtil.cc:842] Failed to create sensor with name[robot_one::ir_intensity_left::ir_intensity_left] for entity [115]. Parent not found with ID[114].
+[ign gazebo-1] [Err] [RenderUtil.cc:842] Failed to create sensor with name[robot_one::ir_intensity_right::ir_intensity_right] for entity [117]. Parent not found with ID[116].
+[ign gazebo-1] [Err] [RenderUtil.cc:842] Failed to create sensor with name[robot_one::ir_intensity_side_left::ir_intensity_side_left] for entity [119]. Parent not found with ID[118].
+```
+
 # Debugging
 
 To run an un-modified version of the create3 on the depot world you can use the recorded bag: `ros2 bag play original_all_bag/ --loop` 
