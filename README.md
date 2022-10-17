@@ -55,9 +55,6 @@ TODO
 
 - Spawning a 3rd create3 in the scene causes Gazebo to crash unexpectandly. We are still investigating this issue, it does not appear to be a performance issue and the limit of 2 create3 in the same scene has been noticed in multiple machines with different specs. Possible lead: saturation of the domain ID with too many topics and communications
 
-<<<<<<< HEAD
-- [Err] [SceneManager.cc:179] Visual: [robot_zero_standard_dock] already exists. These errors will appear in your first terminal when spawning new robots, they can be ignored
-=======
 - [Err] [SceneManager.cc:179] Visual: [robot_zero_standard_dock] already exists. These errors will appear in your first terminal when spawning new robots, they can be ignored
 full stack-trace: 
 ```
@@ -93,4 +90,3 @@ full stack-trace:
 # Debugging
 
 To run an un-modified version of the create3 on the depot world you can use the recorded bag: `ros2 bag play original_all_bag/ --loop` 
->>>>>>> d54a4a035420203ad3cfd89c10cf07299b9c27b0
