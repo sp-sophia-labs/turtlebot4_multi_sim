@@ -1,4 +1,8 @@
 build/
 install/
 log/
+
 .vscode/
+
+frames.gv
+frames.pdf
