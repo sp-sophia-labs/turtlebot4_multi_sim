@@ -89,14 +89,8 @@ full stack-trace:
 
 # Improvements:
 
-- Check that the create3 bunpers are correctly namespaced
-
 - Revert turtlebot4_navigation changes and try use_namespace=true & create rule for no namespace
 
 - Fix left/right wheel frames and description to appear within the tree
 
 - Namespace rviz to get a fair startup  experience
-
-- Investigate HMI tutlebot4 still not displaying properly 
-
-To run an un-modified version of the create3 on the depot world you can use the recorded bag: `ros2 bag play original_all_bag/ --loop` 
