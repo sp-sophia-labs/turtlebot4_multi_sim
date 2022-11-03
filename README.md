@@ -94,3 +94,6 @@ full stack-trace:
 - Fix left/right wheel frames and description to appear within the tree
 
 - Namespace rviz to get a fair startup  experience
+
+- Investigate error: [controller_server-37] [INFO] [1666628647.346443339] [robot_0.local_costmap.local_costmap]: Timed out waiting for transform from base_link to odom to become available, tf error: Invalid frame ID "odom" passed to canTransform argument target_frame - frame does not exist
+

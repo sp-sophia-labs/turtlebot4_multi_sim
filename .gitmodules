@@ -19,3 +19,9 @@
 [submodule "src/turtlebot4"]
 	path = src/turtlebot4
 	url = https://github.com/sp-sophia-labs/turtlebot4.git
+[submodule "src/turtlebot4_desktop"]
+	path = src/turtlebot4_desktop
+	url = https://github.com/sp-sophia-labs/turtlebot4_desktop.git
+[submodule "src/navigation2"]
+	path = src/navigation2
+	url = https://github.com/ros-planning/navigation2.git
