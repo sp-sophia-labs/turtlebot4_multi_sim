@@ -10,8 +10,8 @@ sudo sh -c 'echo "deb http://packages.osrfoundation.org/gazebo/ubuntu-stable `ls
 wget http://packages.osrfoundation.org/gazebo.key -O - | sudo apt-key add -
 sudo apt-get update && sudo apt-get install -y ignition-edifice
 
-sudo apt install -y python3-pip python3-wstool python3-catkin-tools python3-rosdep python3-colcon-common-extensions
+sudo apt install -y python3-pip python3-wstool python3-vcstool python3-catkin-tools python3-rosdep python3-colcon-common-extensions
 
-sudo rosdep init || 1
+sudo rosdep init || true
 rosdep update
 rosdep install --from-paths src --ignore-src --rosdistro=$ROS_DISTRO -r -y

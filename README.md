@@ -1,6 +1,14 @@
 # turtlebot_sim_test
 
-Tentative to launch multiple turtlebot4 in simulation. For now working only with the create3 mobile base. This code is tested for Ubuntu 20.04 and ROS2 Galactic
+Tentative to launch multiple turtlebot4 in simulation with correct namespacing. This code is tested for Ubuntu 20.04 and ROS2 Galactic.
+This code includes forked submodules for rclcpp, gz_ros2_control, ros2_control and ros2_controllers 
+
+## clone
+
+Use the following to clone the entire repo with submodules:
+`git clone --recursive https://github.com/sp-sophia-labs/turtlebot4_sim_test.git`
+
+Alternatively you can clone normally and run `git submodule update -r --init` in the root directory of the project
 
 ## install
 
@@ -14,47 +22,50 @@ If you are building on a weaker machine, it's recommended to build packages sequ
 
 `make safe_build`
 
-# Create3
-
 ### run
+
+### Create3
 
 `source install/setup.bash`
 
 Launch the world and the first create3 instance:
 `ros2 launch irobot_create_ignition_bringup create3_ignition.launch.py namespace:=robot_0 robot_name:=robot_zero`
 
-The namespace needs to follow the `robot_X` nomenclature or be left empty
-The robot_name can be changed and defaults to "create3"
-
 Alternatively, launching the robot without namespaces is still available:
 `ros2 launch irobot_create_ignition_bringup create3_ignition.launch.py`
 
-For weaker machines, you can spawn create3 in an empty world:
+(Optional) For weaker machines, you can spawn create3 in an empty world:
 `ros2 launch irobot_create_ignition_bringup create3_ignition.launch.py world:=empty`
 
 In a separate terminal, spawn another create3 instance with different name, namespace and pose:
 `ros2 launch irobot_create_ignition_bringup create3_spawn.launch.py namespace:=robot_1 robot_name:=robot_one y:=1`
-
 You can change the x, y, z param to spawn the robot where needed
 
-# TurtleBot4
+Once the gazebo simulation has started, you can modify the Create3 HMI field to reflect on the new robot name. It defaults to "create3"
+This will correctly map the Create3 simulated button to one of your robots 
 
-TODO
+### TurtleBot4
 
-# Known issues
+`source install/setup.bash`
+
+Launch the world and the first create3 instance:
+`ros2 launch turtlebot4_ignition_bringup ignition.launch.py namespace:=robot_0 robot_name:=robot_zero`
+
+Alternatively, launching the robot without namespaces is still available:
+`ros2 launch turtlebot4_ignition_bringup ignition.launch.py`
+
+In a separate terminal, spawn another create3 instance with different name, namespace and pose:
+`ros2 launch turtlebot4_ignition_bringup turtlebot4_spawn.launch.py namespace:=robot_1 robot_name:=robot_one y:=1`
+You can change the x, y, z param to spawn the robot where needed
+
+Once the gazebo simulation has started, you can modify the Turtlebot4 HMI field to reflect on the new robot name. It defaults to "turtlebot4"
+This will correctly map the Turtlebot simulated button and interface to one of your robots. Leds should light up and the interface should display the usual options
+
+## Known issues
 
 - The create3 dock can appear deformed in Gazebo in certain cases (often seen in non-depot worlds). Running `export LC_ALL=C LANG=C` before the launch or prefixing the command with `LC_ALL=C LANG=C` should solve the issue
 
-- docking/undocking behavior is not completely stable as namespaces are not completely propagated to /_internal topics. ir related topics don't seem to work as intended for now. We are investigating the issue..
-
-- Create3 button GUI in Gazebo does not work yet with namespacing.We are investigating the issue..
-
-- Spawning a 3rd create3 in the scene causes Gazebo to crash unexpectandly. We are still investigating this issue, it does not appear to be a performance issue and the limit of 2 create3 in the same scene has been noticed in multiple machines with different specs 
-
-- Namespaces need to be registered in `` before being used, limiting scalability and naming flexibility
-
-- [Err] [SceneManager.cc:179] Visual: [robot_zero_standard_dock] already exists. These errors will appear in your first terminal when spawning new robots, they can be ignored
-
+- [Err] [SceneManager.cc:179] Visual: [robot_zero_standard_dock] already exists. These errors will appear in your first terminal when spawning new robots, they can be ignored for now (but should be investigated nonetheless..)
 full stack-trace: 
 ```
 [ign gazebo-1] [Err] [SceneManager.cc:179] Visual: [ground_plane] already exists
@@ -86,6 +97,4 @@ full stack-trace:
 [ign gazebo-1] [Err] [RenderUtil.cc:842] Failed to create sensor with name[robot_one::ir_intensity_side_left::ir_intensity_side_left] for entity [119]. Parent not found with ID[118].
 ```
 
-# Debugging
-
-To run an un-modified version of the create3 on the depot world you can use the recorded bag: `ros2 bag play original_all_bag/ --loop` 
+- Turtlebot4 navigation system does not start correctly when namespaced. Map is published to the correct topic but does not show up in RVIZ (maybe a reference frame_id issue) and the namespace/map frame is not created.
